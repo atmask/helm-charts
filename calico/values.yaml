@@ -1,0 +1,17 @@
+
+# Override subchart values
+tigera-operator:
+  apiServer:
+    enabled: true
+  
+  installation:
+    cni:
+      type: Calico
+    calicoNetwork:
+      bgp: Disabled
+      ipPools:
+        - cidr: 10.0.0.0/24
+          encapsulation: VXLAN
+          nodeSelector: "all()"
+          blockSize: 28 # 16 ips per block
+

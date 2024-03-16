@@ -1,0 +1,17 @@
+apiVersion: v2
+name: calico
+description: A Helm chart that maintains a configured Calico chart
+type: application
+
+# Chart version
+version: 0.1.0
+# Application version
+appVersion: "3.26.4"
+
+maintainers:
+  - name: Ben Mask
+    email: benjaminajm@gmail.com
+dependencies:
+  - name: tigera-operator
+    repository: https://projectcalico.docs.tigera.io/charts
+    version: 3.26.4
