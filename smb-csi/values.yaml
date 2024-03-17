@@ -1,3 +1,4 @@
+testEnabled: false
 
 # Override subchart
 # csi-driver-smb:

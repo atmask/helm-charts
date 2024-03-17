@@ -1,0 +1,43 @@
+{{- if .Values.testEnabled }}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: ss-smb
+  labels:
+    app: busybox
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: busybox
+    spec:
+      containers:
+        - name: ss-smb
+          image: alpine:latest
+          command:
+            - sleep
+            - infinity
+          volumeMounts:
+            - name: smb
+              mountPath: "/sc/smb"
+      tolerations:
+        - key: "node.kubernetes.io/os"
+          operator: "Exists"
+          effect: "NoSchedule"
+  updateStrategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: busybox
+  volumeClaimTemplates:
+    - metadata:
+        name: smb
+        annotations:
+          volume.beta.kubernetes.io/storage-class: smb
+      spec:
+        accessModes: ["ReadWriteMany"]
+        resources:
+          requests:
+            storage: 10Gi
+{{- end }}
