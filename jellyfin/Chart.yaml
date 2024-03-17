@@ -1,0 +1,17 @@
+apiVersion: v2
+name: jellyfin
+description: A Helm chart that maintains a configured Jellyfin chart
+type: application
+
+# Chart version
+version: 0.1.0
+# Application version
+appVersion: "10.8.1"
+
+maintainers:
+  - name: Ben Mask
+    email: benjaminajm@gmail.com
+dependencies:
+  - name: jellyfin
+    repository: https://k8s-at-home.com/charts/
+    version: 9.5.3

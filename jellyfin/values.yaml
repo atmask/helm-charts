@@ -1,0 +1,24 @@
+
+jellyfin:
+  env:
+    TZ: "America/Toronto" 
+
+  persistence:
+    config:
+      enabled: false
+      storageClass: smb
+
+    # Cache does NOT contain temporary transcoding data.
+    cache:
+      enabled: true
+      mountPath: /cache
+      accessMode: ReadWriteMany
+      size: 5Gi
+      storageClass: smb
+
+    media:
+      enabled: true
+      mountPath: /media
+      accessMode: ReadWriteMany
+      size: 300Gi
+      storageClass: smb
