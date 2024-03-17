@@ -1,12 +1,17 @@
 
 jellyfin:
+  #  Can try changing controller
+  # controller:
+  #   type: "statefulset"
+
   env:
     TZ: "America/Toronto" 
 
   persistence:
     config:
-      enabled: false
-      storageClass: smb
+      enabled: true
+      storageClass: local-path # the sqlite db locks if using smb
+      accessMode: ReadWriteOnce # local-path ReadWriteOnce and ReadWriteOncePod
 
     # Cache does NOT contain temporary transcoding data.
     cache:
