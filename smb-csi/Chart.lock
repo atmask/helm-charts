@@ -1,0 +1,6 @@
+dependencies:
+- name: csi-driver-smb
+  repository: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
+  version: v1.14.0
+digest: sha256:b3e77f83995e720ca9d305bb9a41e55b9e136d0c7a041135f4c69fa083a2b410
+generated: "2024-03-16T22:32:45.55514-04:00"
