@@ -1,0 +1,12 @@
+# Example namespace resource. Notices the required annotations
+
+# apiVersion: v1
+# kind: Namespace
+# metadata:
+#   labels:
+#     kubernetes.io/metadata.name: metallb-system
+#     # Needed if pod security admission is enforced
+#     pod-security.kubernetes.io/audit: privileged
+#     pod-security.kubernetes.io/enforce: privileged
+#     pod-security.kubernetes.io/warn: privileged
+#   name: metallb-system
