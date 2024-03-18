@@ -1,4 +1,7 @@
 
+service:
+  metallbEnabled: false
+
 jellyfin:
   #  Can try changing controller
   # controller:
