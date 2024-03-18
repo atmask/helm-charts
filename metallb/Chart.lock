@@ -1,0 +1,6 @@
+dependencies:
+- name: metallb
+  repository: oci://registry-1.docker.io/bitnamicharts
+  version: 5.0.0
+digest: sha256:1c1d9f9e0a9c86340e4d616e5e2c7ae1857df7d5dc70be88ebbdaefcb9e1793c
+generated: "2024-03-17T21:28:29.309409-04:00"

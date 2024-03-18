@@ -1,0 +1,17 @@
+apiVersion: v2
+name: metallb
+description: A Helm chart that maintains a configured metallb chart
+type: application
+
+# Chart version
+version: 0.1.0
+# Application version
+appVersion: "0.14.3"
+
+maintainers:
+  - name: Ben Mask
+    email: benjaminajm@gmail.com
+dependencies:
+  - name: metallb
+    repository: oci://registry-1.docker.io/bitnamicharts
+    version: 5.0.0
