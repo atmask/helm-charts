@@ -1,9 +1,9 @@
 
 service:
-  metallbEnabled: false
+  metallbEnabled: true
 
 ingress:
-  enabled: true
+  enabled: false
   host: jellyfin-homelab.io
 
 # Subchart overrides
