@@ -2,6 +2,11 @@
 service:
   metallbEnabled: false
 
+ingress:
+  enabled: true
+  host: jellyfin-homelab.io
+
+# Subchart overrides
 jellyfin:
   #  Can try changing controller
   # controller:
