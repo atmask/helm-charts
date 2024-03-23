@@ -1,0 +1,59 @@
+## Configure subchart
+otel-agent:
+  mode: daemonset
+
+  presets:
+    logsCollection:
+      enabled: true
+      includeCollectorLogs: false
+
+  ports:
+    jaeger-compact:
+      enabled: false
+    jaeger-thrift:
+      enabled: false
+    jaeger-grpc:
+      enabled: false
+    zipkin:
+      enabled: false
+
+  config:
+    receivers:
+      jaeger: null
+      prometheus: null
+      zipkin: null
+
+    extensions:
+      # The health_check extension is mandatory for this chart.
+      # Without the health_check extension the collector will fail the readiness and liveliness probes.
+      # The health_check extension can be modified, but should never be removed.
+      health_check:
+        endpoint: ${env:MY_POD_IP}:13133
+      basicauth/otlp:
+        client_auth:
+          username: <instanceID>
+          password: <Cloud Access Policy token>
+    
+    processors:
+      batch:
+        send_batch_max_size: 100
+        send_batch_size: 10
+        timeout: 10s
+
+    exporters:
+      otlphttp/grafana:
+        auth:
+          authenticator: basicauth/otlp
+        endpoint: <OTLP Endpoint URL>
+      logging: null
+      debug: null
+
+    service:
+      extensions: [basicauth/otlp, health_check]
+      pipelines:
+        logs:
+          processors: [batch, memory_limiter]
+          exporters:
+            - otlphttp/grafana
+        metrics: null
+        traces: null
