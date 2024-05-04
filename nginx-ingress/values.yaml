@@ -2,4 +2,7 @@
 ingress-nginx:
   controller:
     service:
-      type: "NodePort"
+      enabled: true
+      type: "LoadBalancer"
+      annotations:
+        metallb.universe.tf/address-pool: lb-ip-pool # Get IP from metallb
