@@ -4,5 +4,6 @@ ingress-nginx:
     service:
       enabled: true
       type: "LoadBalancer"
+      # externalTrafficPolicy: "Local"
       annotations:
         metallb.universe.tf/address-pool: lb-ip-pool # Get IP from metallb
