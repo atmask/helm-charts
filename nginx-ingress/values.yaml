@@ -1,6 +1,7 @@
 
 ingress-nginx:
   controller:
+    allowSnippetAnnotations: true
     service:
       enabled: true
       type: "LoadBalancer"
