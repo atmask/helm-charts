@@ -7,6 +7,8 @@ ingress:
   host: jellyfin.fallow.app
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/revision-history-limit: "2"
+  
   tls:
   - hosts: 
     - jellyfin.fallow.app
