@@ -18,3 +18,7 @@ mountOptions:
   - file_mode=0777
   - uid=1001
   - gid=1001
+  - nobrl 
+  # details on using nobrl:
+  ## https://learn.microsoft.com/en-us/troubleshoot/azure/azure-kubernetes/storage/mountoptions-settings-azure-files#other-useful-settings
+  ## https://github.com/dani-garcia/vaultwarden/issues/846
