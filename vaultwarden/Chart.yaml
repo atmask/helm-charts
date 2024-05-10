@@ -1,0 +1,14 @@
+apiVersion: v2
+name: vaultwarden
+description: A Helm chart for deploying configured vaultwarden
+type: application
+version: 0.1.0
+appVersion: "1.30.3"
+
+maintainers:
+  - name: Ben Mask
+    email: benjaminajm@gmail.com
+dependencies:
+  - name: vaultwarden
+    repository: https://guerzon.github.io/vaultwarden
+    version: 0.22.6

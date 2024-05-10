@@ -1,0 +1,14 @@
+## Override subchart config
+vaultwarden:
+  data:
+    name: "vaultwarden-data"
+    size: "8Gi"
+    class: smb
+
+
+  ingress:
+    enabled: true
+    class: nginx
+    hostname: vault.home
+
+  domain: http://vault.home
