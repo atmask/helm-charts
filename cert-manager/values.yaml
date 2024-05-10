@@ -4,21 +4,3 @@ cert-manager:
   # If enabled, when uninstalling CRD resources will be deleted causing all installed custom resources to be DELETED
   installCRDs: true
 
-## Configure Issuers
-issuers:
-  install: true ## Set to false for first install of cert-manager when CRDs are not avail.
-  solvers:
-    - dns01:
-        cloudflare:
-          apiTokenSecretRef:
-            name: cloudflare-api-token-secret
-            key: api-token   
-  issuers:
-    - name: letsencrypt
-      server: https://acme-v02.api.letsencrypt.org/directory
-      email: benjaminajm@gmail.com
-      secretName: letsencrypt-account-key
-    - name: letsencrypt-staging
-      server: https://acme-staging-v02.api.letsencrypt.org/directory
-      email: benjaminajm@gmail.com
-      secretName: letsencrypt-staging-account-key
