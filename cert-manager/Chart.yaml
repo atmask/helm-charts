@@ -1,0 +1,14 @@
+apiVersion: v2
+name: cert-manager
+description: A Helm chart for deploying a configured Cert-Manager instance
+type: application
+version: 0.1.0
+appVersion: "1.13.2"
+
+maintainers:
+  - name: Ben Mask
+    email: benjaminajm@gmail.com
+dependencies:
+  - name: cert-manager
+    repository: https://charts.jetstack.io
+    version: 1.13.2

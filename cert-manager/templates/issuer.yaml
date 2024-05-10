@@ -1,0 +1,22 @@
+{{- if .Values.issuers.install }}
+{{- range $issuer := .Values.issuers.issuers }}
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: {{ $issuer.name }}
+spec:
+  acme:
+    # You must replace this email address with your own.
+    # Let's Encrypt will use this to contact you about expiring
+    # certificates, and issues related to your account.
+    email: {{ $issuer.email }}
+    server: {{ $issuer.server }}
+    privateKeySecretRef:
+      # Secret resource that will be used to store the account's private key.
+      name: {{ $issuer.secretName }}
+    # Add a single challenge solver
+    solvers:
+{{ toYaml $.Values.issuers.solvers | indent 6 }}
+---
+{{- end }}
+{{- end }}
