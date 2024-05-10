@@ -9,6 +9,10 @@ vaultwarden:
   ingress:
     enabled: true
     class: nginx
-    hostname: vault.home
+    hostname: vault.fallow.app
+    tlsSecret: vaultwarden-tls-secret
+    additionalAnnotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      cert-manager.io/revision-history-limit: "2"
 
-  domain: http://vault.home
+  domain: https://vault.fallow.app
