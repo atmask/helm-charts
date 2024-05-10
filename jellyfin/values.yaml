@@ -4,7 +4,13 @@ service:
 
 ingress:
   enabled: true
-  host: jellyfin.home
+  host: jellyfin.fallow.app
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+  tls:
+  - hosts: 
+    - jellyfin.fallow.app
+    secretName: jellyfin-tls-secret
 
 # Subchart overrides
 jellyfin:

@@ -4,6 +4,10 @@ kind: Ingress
 metadata:
   name: jellyfin
   namespace: {{ .Release.Namespace }}
+{{- if .Values.ingress.annotations }}
+  annotations:
+{{ toYaml .Values.ingress.annotations | indent 4 }}
+{{- end }}
 spec:
   ingressClassName: nginx
   rules:
@@ -17,4 +21,8 @@ spec:
               number: 8096
         path: /
         pathType: Prefix
+{{- if .Values.ingress.tls }}
+  tls:
+{{ toYaml .Values.ingress.tls | indent 2 }}
+{{- end }}
 {{- end }}
