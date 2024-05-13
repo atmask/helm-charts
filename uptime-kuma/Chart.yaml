@@ -1,0 +1,14 @@
+apiVersion: v2
+name: uptime-kuma
+description: A Helm chart for deploying uptime-kuma configuration
+type: application
+version: 0.1.0
+appVersion: "1.23.11"
+
+maintainers:
+  - name: Ben Mask
+    email: benjaminajm@gmail.com
+dependencies:
+  - name: uptime-kuma
+    repository: https://helm.irsigler.cloud
+    version: 2.18.0
