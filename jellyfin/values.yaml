@@ -20,6 +20,9 @@ jellyfin:
   # controller:
   #   type: "statefulset"
 
+  image:
+    tag: 10.9.4
+
   env:
     TZ: "America/Toronto" 
 

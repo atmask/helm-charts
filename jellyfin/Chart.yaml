@@ -6,7 +6,7 @@ type: application
 # Chart version
 version: 0.1.0
 # Application version
-appVersion: "10.8.1"
+appVersion: "10.9.4"
 
 maintainers:
   - name: Ben Mask
