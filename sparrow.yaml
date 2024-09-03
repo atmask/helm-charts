@@ -1,0 +1,13 @@
+clusters:
+  - devops:
+      azure:
+        - values:
+          clusterName: <>
+          clusterResourceGroup: <>
+      gcp:
+        - values: values-dev.aml
+          auth:
+      local:
+        - values: 
+          kubeconfig:
+  
