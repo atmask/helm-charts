@@ -1,0 +1,10 @@
+apiVersion: v2
+name: registry
+description: A Helm chart for maintaining a Docker registry
+type: application
+version: 0.1.0
+appVersion: "2.8.3"
+dependencies:
+  - name: docker-registry
+    version: 2.2.3 
+    repository: https://helm.twun.io

@@ -1,0 +1,20 @@
+docker-registry:
+  replicaCount: 1
+    
+  service:
+    type: ClusterIP
+
+  storage: "s3"
+
+  ingress:
+    enabled: true
+    hosts: [registry.fallow.app]
+    path: /
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      cert-manager.io/revision-history-limit: "2"
+    tls:
+    - hosts: 
+      - registry.fallow.app
+      secretName: registry-tls-secret
+  
