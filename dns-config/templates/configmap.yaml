@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns-custom
+  namespace: kube-system
+data:
+  internal.server: |
+    fallow.app:53 {
+        forward . 10.100.0.106
+        cache 30
+    }
+
