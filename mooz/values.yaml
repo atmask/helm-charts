@@ -1,0 +1,36 @@
+# Default values for mooz.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: registry.fallow.app/mooz
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "0.0.3-arm"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+podLabels: {}
+
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: true
+  host: mooz.fallow.app
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/revision-history-limit: "2"
+  
+  tls:
+  - hosts: 
+    - mooz.fallow.app
+    secretName: mooz-tls-secret
+
