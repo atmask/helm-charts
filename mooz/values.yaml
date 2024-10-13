@@ -8,7 +8,7 @@ image:
   repository: registry.fallow.app/mooz
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.0.3-arm"
+  tag: "0.0.4-arm"
 
 imagePullSecrets: []
 nameOverride: ""
