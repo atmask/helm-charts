@@ -21,7 +21,7 @@ jellyfin:
   #   type: "statefulset"
 
   image:
-    tag: 10.9.4
+    tag: 10.10.3
 
   env:
     TZ: "America/Toronto" 
