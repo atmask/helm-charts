@@ -1,0 +1,15 @@
+apiVersion: v2
+name: alloy
+description: A Helm chart for deploying Grafana Alloy 
+type: application
+version: 0.1.0
+appVersion: "1.5.1"
+
+maintainers:
+  - name: Ben Mask
+    email: benjaminajm@gmail.com
+dependencies:
+  - name: k8s-monitoring
+    alias: alloy
+    repository: https://grafana.github.io/helm-charts
+    version: 0.10.0
