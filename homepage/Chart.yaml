@@ -1,0 +1,14 @@
+apiVersion: v2
+name: homepage
+description: A Helm chart for deploying Homepage 
+type: application
+version: 0.1.0
+appVersion: "0.9.6"
+
+maintainers:
+  - name: Ben Mask
+    email: benjaminajm@gmail.com
+dependencies:
+  - name: homepage
+    repository: https://jameswynn.github.io/helm-charts
+    version: 2.0.1

@@ -1,0 +1,96 @@
+service:
+  port: 3000
+ingress:
+  enabled: true
+  host: homepage.fallow.app
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/revision-history-limit: "2"
+  tls:
+  - hosts: 
+    - homepage.fallow.app
+    secretName: homepage-tls-secret
+
+homepage:
+  config: 
+    bookmarks:
+      - Developer:
+          - Blog:
+              - abbr: BG
+                href: https://blog.fallow.app
+          - Github:
+              - abbr: GH
+                href: https://github.com/atmask
+          - Youtube:
+              - abbr: YT
+                href: https://www.youtube.com
+      - Learning:
+          - Hackattic:
+              - abbr: HA
+                href: https://hackattic.com/
+          - HackTheBox:
+              - href: https://www.hackthebox.com/
+                abbr: HB
+          - CodeCrafters:
+              - abbr: CC
+                href: https://codecrafters.io/
+
+    widgets:
+      - greeting:
+          text_size: xl
+          text: Welcome to my lab! 👋
+      # show the kubernetes widget, with the cluster summary and individual nodes
+      - kubernetes:
+          cluster:
+            show: true
+            cpu: true
+            memory: true
+            showLabel: true
+            label: "cluster"
+          nodes:
+            show: true
+            cpu: true
+            memory: true
+            showLabel: true
+      - datetime:
+          text_size: xl
+          format:
+            timeStyle: short
+      # - search:
+      #     provider: duckduckgo
+      #     target: _blank
+    kubernetes:
+      mode: cluster
+    settings:
+      background:
+        # image: https://plus.unsplash.com/premium_photo-1667530527025-0dbeb1777692?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+        image: https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=2934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+        # blur: sm # sm, "", md, xl... see https://tailwindcss.com/docs/backdrop-blur
+        saturate: 50 # 0, 50, 100... see https://tailwindcss.com/docs/backdrop-saturate
+        brightness: 50 # 0, 50, 75... see https://tailwindcss.com/docs/backdrop-brightness
+        opacity: 25 # 0-100
+      # layout:
+      #   Apps:
+      #     style: row
+      #     columns: 4
+      #   Networking:
+      #     style: row
+      #     columns: 4
+      #   Monitoring:
+      #     style: row
+      #     columns: 4
+      #   Storage:
+      #     style: row
+      #     columns: 4
+
+  # The service account is necessary to allow discovery of other services
+  serviceAccount:
+    create: true
+    name: homepage
+
+  # This enables the service account to access the necessary resources
+  enableRbac: true
+
+  ingress:
+    main:
+      enabled: false
