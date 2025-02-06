@@ -1,16 +1,17 @@
+{{- range .Values.shares }}
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: smb
+  name: {{ .name }}
 provisioner: smb.csi.k8s.io
 parameters:
-  source: //10.100.0.102/nas
+  source: {{ .source }}
   # if csi.storage.k8s.io/provisioner-secret is provided, will create a sub directory
   # with PV name under source
-  csi.storage.k8s.io/provisioner-secret-name: smbcreds
-  csi.storage.k8s.io/provisioner-secret-namespace: default
-  csi.storage.k8s.io/node-stage-secret-name: smbcreds
-  csi.storage.k8s.io/node-stage-secret-namespace: default
+  csi.storage.k8s.io/provisioner-secret-name: {{ .secretName}}
+  csi.storage.k8s.io/provisioner-secret-namespace: {{ .secretNamespace }}
+  csi.storage.k8s.io/node-stage-secret-name: {{ .secretName }}
+  csi.storage.k8s.io/node-stage-secret-namespace: {{ .secretNamespace }}
 reclaimPolicy: Delete  # available values: Delete, Retain
 volumeBindingMode: Immediate
 mountOptions:
@@ -22,3 +23,5 @@ mountOptions:
   # details on using nobrl:
   ## https://learn.microsoft.com/en-us/troubleshoot/azure/azure-kubernetes/storage/mountoptions-settings-azure-files#other-useful-settings
   ## https://github.com/dani-garcia/vaultwarden/issues/846
+---
+{{- end }}

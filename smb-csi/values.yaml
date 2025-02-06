@@ -1,5 +1,18 @@
 testEnabled: false
 
+## Specify the shares to expsoe via storage class
+shares:
+  - name: smb # Original 1TB SSD
+    source: //10.100.0.102/nas
+    secretName: smbcreds
+    secretNamespace: default
+    recalimPolicy: Delete
+  - name: truenas-general
+    source: //truenas.home/general
+    secretName: truenas-smbcreds
+    secretNamespace: default
+    recalimPolicy: Delete
+
 # Override subchart
 # csi-driver-smb:
 #   controller:
