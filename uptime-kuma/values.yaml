@@ -1,11 +1,13 @@
 uptime-kuma:
+  image:
+    tag: "1.23.11-alpine"
 
   ## Persistence
   useDeploy: false
   volume:
     accesMode: ReadWriteMany ## Using smb
     size: 3Gi
-    storageClassName: smb
+    storageClassName: truenas-general
 
   
   ## Ingress

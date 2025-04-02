@@ -3,7 +3,7 @@ vaultwarden:
   data:
     name: "vaultwarden-data"
     size: "8Gi"
-    class: smb
+    class: truenas-general 
 
   image:
     tag: "1.32.0-alpine"
